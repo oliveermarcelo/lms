@@ -1,0 +1,41 @@
+name: lms-dev
+
+services:
+  mariadb:
+    image: mariadb:10.8
+    container_name: lms-dev-mariadb
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --skip-character-set-client-handshake
+      - --skip-innodb-read-only-compressed
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    restart: unless-stopped
+
+  redis:
+    image: redis:alpine
+    container_name: lms-dev-redis
+    restart: unless-stopped
+
+  frappe:
+    image: frappe/bench:latest
+    container_name: lms-dev-frappe
+    command: bash /workspace/init.sh
+    environment:
+      - SHELL=/bin/bash
+    working_dir: /home/frappe
+    volumes:
+      - .:/workspace
+    ports:
+      - "8000:8000"
+      - "9000:9000"
+    depends_on:
+      - mariadb
+      - redis
+    restart: unless-stopped
+
+volumes:
+  mariadb-data:

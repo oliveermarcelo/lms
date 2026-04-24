@@ -16,11 +16,19 @@ __pycache__/
 .venv/
 venv/
 
-# Frappe / bench
+# Frappe / bench — diretórios gerados em runtime
+frappe-bench/
 sites/
 logs/
+config/
+apps/frappe/
+apps/lms/
+apps/erpnext/
 assets/
 .build/
+archived/
+.cache/
+common_site_config.json
 
 # Docker
 docker-compose.override.yml
