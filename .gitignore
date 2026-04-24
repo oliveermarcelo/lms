@@ -1,0 +1,42 @@
+# Ambiente
+.env
+.env.local
+.env.production
+
+# Credenciais (NUNCA commitar)
+docs/credenciais.md
+*.pem
+*.key
+*.crt
+
+# Dependências
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Frappe / bench
+sites/
+logs/
+assets/
+.build/
+
+# Docker
+docker-compose.override.yml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Backups locais
+*.sql
+*.sql.gz
+*.tar.gz
+backups/
+
+# Logs
+*.log
