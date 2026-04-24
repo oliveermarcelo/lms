@@ -16,19 +16,16 @@ __pycache__/
 .venv/
 venv/
 
-# Frappe / bench — diretórios gerados em runtime
-frappe-bench/
-sites/
-logs/
-config/
-apps/frappe/
-apps/lms/
-apps/erpnext/
-assets/
-.build/
-archived/
-.cache/
-common_site_config.json
+# Frappe Bench - ignora tudo exceto o app customizado medacademy
+frappe-bench/*
+!frappe-bench/apps
+frappe-bench/apps/*
+!frappe-bench/apps/medacademy
+frappe-bench/apps/medacademy/.git
+frappe-bench/apps/medacademy/__pycache__
+frappe-bench/apps/medacademy/**/__pycache__
+frappe-bench/apps/medacademy/**/*.pyc
+frappe-bench/apps/medacademy/node_modules
 
 # Docker
 docker-compose.override.yml

@@ -26,7 +26,7 @@ services:
     command: bash /workspace/init.sh
     environment:
       - SHELL=/bin/bash
-    working_dir: /home/frappe
+    working_dir: /workspace
     volumes:
       - .:/workspace
     ports:
